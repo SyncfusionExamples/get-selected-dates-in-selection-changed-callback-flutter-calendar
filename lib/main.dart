@@ -58,7 +58,7 @@ class ScheduleExample extends State<EventCalendar> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Container(
-                child: new Text("Details shown by selected date changed callback")),
+                child: new Text("Details shown by selection changed callback")),
             content:
             Container(child: new Text("You have selected " + '$_text')),
             actions: <Widget>[
