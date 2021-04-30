@@ -1,2 +1,1 @@
-# get-selected-dates-in-selection-changed-callback-flutter-calendar
-How to get the selected dates using selection changed callback in the Flutter Calendar
+**[View document in Syncfusion Flutter Knowledge base](https://www.syncfusion.com/kb/12551/how-to-get-the-selected-dates-using-selection-changed-callback-in-the-flutter-calendar)**
