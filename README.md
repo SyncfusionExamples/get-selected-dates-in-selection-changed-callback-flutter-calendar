@@ -37,7 +37,7 @@ void selectionChanged(CalendarSelectionDetails details) {
 
 ```
 
-
+![SelectionChanged](https://user-images.githubusercontent.com/46158936/203047858-b72b2818-7a74-4243-ad97-045ebae07e8d.gif)
 
 ## Requirements to run the demo
 * [VS Code](https://code.visualstudio.com/download)
