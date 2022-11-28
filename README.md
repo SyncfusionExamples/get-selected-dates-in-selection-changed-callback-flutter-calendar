@@ -6,37 +6,6 @@ This example demonstrates how to get the selected dates using the selection chan
 
 Using the [onSelectionChanged](https://pub.dev/documentation/syncfusion_flutter_calendar/latest/calendar/SfCalendar/onSelectionChanged.html) callback, you can get the selected details from the Flutter Event Calendar and display them in the Alert dialog window. When the controller's selected date changes, the onSelectionChanged callback is triggered.
 
-```
-
-void selectionChanged(CalendarSelectionDetails details) {
-    if (_controller.view == CalendarView.month ||
-        _controller.view == CalendarView.timelineMonth) {
-      _text = DateFormat('dd, MMMM yyyy').format(details.date!).toString();
-    } else {
-      _text =
-          DateFormat('dd, MMMM yyyy hh:mm a').format(details.date!).toString();
-    }
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Container(
-                child: const Text("Details shown by selection changed callback")),
-            content:
-            Container(child: Text("You have selected " + '$_text')),
-            actions: <Widget>[
-              TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: const Text('close'))
-            ],
-          );
-        });
-  }
-
-```
-
 ![SelectionChanged](https://user-images.githubusercontent.com/46158936/203047858-b72b2818-7a74-4243-ad97-045ebae07e8d.gif)
 
 ## Requirements to run the demo
