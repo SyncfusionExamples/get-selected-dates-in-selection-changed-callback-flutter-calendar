@@ -1,46 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
-void main() => runApp(SelectedDateDetails());
+void main() {
+  runApp(const MyApp());
+}
 
-class SelectedDateDetails extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: EventCalendar(),
+      title: 'Calendar Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(title: 'Calendar Page'),
     );
   }
 }
 
-class EventCalendar extends StatefulWidget {
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+  final String title;
+
   @override
-  State<StatefulWidget> createState() => ScheduleExample();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class ScheduleExample extends State<EventCalendar> {
+class _MyHomePageState extends State<MyHomePage> {
   final CalendarController _controller = CalendarController();
   String _text = '';
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
-      child: SfCalendar(
-        view: CalendarView.day,
-        allowedViews: [
-          CalendarView.day,
-          CalendarView.week,
-          CalendarView.workWeek,
-          CalendarView.month,
-          CalendarView.timelineDay,
-          CalendarView.timelineWeek,
-          CalendarView.timelineWorkWeek,
-          CalendarView.timelineMonth
-        ],
-        controller: _controller,
-        onSelectionChanged: selectionChanged,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Container(
+        child: SfCalendar(
+          view: CalendarView.day,
+          allowedViews: const [
+            CalendarView.day,
+            CalendarView.week,
+            CalendarView.workWeek,
+            CalendarView.month,
+            CalendarView.timelineDay,
+            CalendarView.timelineWeek,
+            CalendarView.timelineWorkWeek,
+            CalendarView.timelineMonth
+          ],
+          controller: _controller,
+          onSelectionChanged: selectionChanged,
+        ),
       ),
     );
   }
@@ -58,15 +73,15 @@ class ScheduleExample extends State<EventCalendar> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Container(
-                child: new Text("Details shown by selection changed callback")),
+                child: const Text("Details shown by selection changed callback")),
             content:
-            Container(child: new Text("You have selected " + '$_text')),
+            Container(child: Text("You have selected " + '$_text')),
             actions: <Widget>[
-              new TextButton(
+              TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: new Text('close'))
+                  child: const Text('close'))
             ],
           );
         });
